@@ -13,61 +13,88 @@ const mainRender = require("./htmlRender/mainRender");
 
 const outputPath = path.resolve(__dirname, "output", "team.html");
 
-const teamMember = [];
+let teamMember = {};
+let allTeamMemeber = [];
+
 
 function mainApp() {
     // create a manager
-    inquirer    
+    inquirer
         .prompt([
-        
+            {
+                type: "input",
+                message: "What is your manager's name?",
+                name: "managerName"
+            },
+            {
+                type: "input",
+                message: "What is your manager's id?",
+                name: "managerId"
+            },
+            {
+                type: "input",
+                message: "What is your manager's email?",
+                name: "managerEmail"
+            },
+            {
+                type: "input",
+                message: "What is your manager's Office Number?",
+                name: "managerNumber"
+            },
+
+
         ])
-        .then(answers =>{
-            
+        .then(answers => {
+            const { managerName, managerId, managerEmail, managerNumber } = answers
+            const managerObj = new Manager(managerName, managerId, managerEmail, managerNumber)
+            const managerCardhtml = managerCard(managerObj)
+            teamMember.push(managerCardhtml)
+            createTeam();
         })
 
 }
 // this function create a list to add teammembers
-function createTeam(){
+function createTeam() {
 
     inquirer
         .prompt([
-            
+
         ])
         .then(answers => {
             // create a switch statement to choose between engineer, intern, or build team
-           
+
         })
 }
 
 // a function that create an engineer
 function getEngineer() {
 
-    inquirer    
+    inquirer
         .prompt([
-            
+
 
         ])
-        .then(answers =>{
-           
+        .then(answers => {
+
         })
 
 }
 // a function that create an intern
 function getIntern() {
 
-    inquirer    
+    inquirer
         .prompt([
-          
+
 
         ])
-        .then(answers =>{
-          
+        .then(answers => {
+
         })
 
 }
 
 function buildTeam() {
-fs.writeFileSync(outputPath, mainRender(teamMember), "utf-8");
+    fs.writeFileSync(outputPath, mainRender(teamMember), "utf-8");
 }
 
 mainApp()
