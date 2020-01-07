@@ -58,11 +58,32 @@ function createTeam() {
 
     inquirer
         .prompt([
+            {
+                type: "list",
+                message: [
+                    "engineer",
+                    "intern",
+                    "build team"],
+                name: "teamMembers",
+            }
 
         ])
         .then(answers => {
             // create a switch statement to choose between engineer, intern, or build team
-
+            switch(expression)
+            {
+                case value:
+                    expression;
+                    break;
+            
+                case value:
+                    expression;
+                    break;
+            
+                default:
+                    Expression;
+            
+            }
         })
 }
 
@@ -72,10 +93,33 @@ function getEngineer() {
     inquirer
         .prompt([
 
-
+            {
+                type: "input",
+                message: "What is your engineer's name?",
+                name: "engineerName"
+            },
+            {
+                type: "input",
+                message: "What is your engineer's id?",
+                name: "engineerId"
+            },
+            {
+                type: "input",
+                message: "What is your engineer's email?",
+                name: "engineerEmail"
+            },
+            {
+                type: "input",
+                message: "What is your engineer's GitHub?",
+                name: "engineerGithub"
+            },
         ])
         .then(answers => {
-
+            const { engineerName, engineerId, engineerEmail, engineerNumber } = answers
+            const engineerObj = new Engineer(engineerName, engineerId, engineerEmail, engineerNumber)
+            const engineerCardhtml = engineerCard(engineerObj)
+            teamMember.push(engineerCardhtml)
+            createTeam();
         })
 
 }
@@ -85,9 +129,34 @@ function getIntern() {
     inquirer
         .prompt([
 
+            {
+                type: "input",
+                message: "What is your intern's name?",
+                name: "internName"
+            },
+            {
+                type: "input",
+                message: "What is your intern's id?",
+                name: "internId"
+            },
+            {
+                type: "input",
+                message: "What is your intern's email?",
+                name: "internEmail"
+            },
+            {
+                type: "input",
+                message: "What is your intern's school?",
+                name: "internSchool"
+            },
 
         ])
         .then(answers => {
+            const { internName, internId, internEmail, internNumber } = answers
+            const internObj = new Intern(internName, internId, internEmail, internNumber)
+            const internCardhtml = internCard(internObj)
+            teamMember.push(internCardhtml)
+            createTeam();
 
         })
 
