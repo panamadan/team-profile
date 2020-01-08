@@ -70,18 +70,18 @@ function createTeam() {
         ])
         .then(answers => {
             // create a switch statement to choose between engineer, intern, or build team
-            switch(expression)
+            switch(answers.choice)
             {
-                case value:
-                    expression;
+                case "enginneer": getEngineer()
+                
                     break;
             
-                case value:
-                    expression;
+                case "intern": getIntern()
+                    
                     break;
             
-                default:
-                    Expression;
+                case "build team": buildTeam()
+                    ;
             
             }
         })
