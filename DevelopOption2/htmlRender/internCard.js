@@ -20,4 +20,4 @@ function internCard(data){
 
 }
 // export internCard
-module.export = internCard
+module.exports = internCard;
