@@ -6,11 +6,11 @@ class Employee {
       this.email= email;
       this.number= number;
     }
-  
-    printInfo() 
+
+    printInfo() {}
      
-    
-  }
+}
+  
   
 // export the employee
 
