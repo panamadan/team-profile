@@ -4,7 +4,6 @@ const engineerCard = require("./engineerCard")
 // create a function that holds the html that will output the main body of the html and will take in the data from the other cards
 function mainRender(data){
    return `
-// header and body for html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,19 +28,18 @@ function mainRender(data){
     </div>
     <div class="container">
         <div class="row">
-            <div class="team-area col-12 d-flex justify-content-center">
-                    {${data.join("")}}
+            <div class="team-area col-12 d-flex justify-content-center"${data.join("")}>
+                {{ team }}
             </div>
         </div>
-    </d
+    </div>
 </body>
 
 </html>
-
-
 `
 
 
-
+}
 // export mainRender
 module.exports = mainRender;
+
